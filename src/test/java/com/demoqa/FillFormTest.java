@@ -7,6 +7,7 @@ import org.junit.jupiter.api.Test;
 
 import static com.codeborne.selenide.Condition.appear;
 import static com.codeborne.selenide.Condition.text;
+import static com.codeborne.selenide.Selectors.byText;
 import static com.codeborne.selenide.Selenide.$;
 import static com.codeborne.selenide.Selenide.open;
 
@@ -24,21 +25,21 @@ public class FillFormTest {
         $("#firstName").setValue("Tester");
         $("#lastName").setValue("Test");
         $("#userEmail").setValue("test@test.com");
-        $("#genterWrapper").$(new ByText("Other")).click();
+        $("#genterWrapper").$(byText("Other")).click();
         $("#userNumber").setValue("1234567890");
         $("#dateOfBirthInput").click();
         $(".react-datepicker__year-select").selectOption("2000");
         $(".react-datepicker__month-select").selectOption("August");
         $(".react-datepicker__day--031:not(.react-datepicker__day--outside-month)").click();
         $("#subjectsInput").setValue("Maths").pressEnter();
-        $("#hobbiesWrapper").$(new ByText("Music")).click();
-        $("#hobbiesWrapper").$(new ByText("Sports")).click();
+        $("#hobbiesWrapper").$(byText("Music")).click();
+        $("#hobbiesWrapper").$(byText("Sports")).click();
         $("#uploadPicture").uploadFromClasspath("image/test.png");
         $("#currentAddress").setValue("some address");
         $("#state").click();
-        $("#stateCity-wrapper").$(new ByText("Haryana")).click();
+        $("#stateCity-wrapper").$(byText("Haryana")).click();
         $("#city").click();
-        $("#stateCity-wrapper").$(new ByText("Karnal")).click();
+        $("#stateCity-wrapper").$(byText("Karnal")).click();
         $("#submit").click();
 
         $(".modal-dialog").should(appear);
