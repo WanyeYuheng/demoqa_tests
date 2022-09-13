@@ -7,14 +7,17 @@ import static com.codeborne.selenide.Selenide.$;
 
 public class ResultTable {
 
-    public void checkVisibility() {
+    public ResultTable checkVisibility() {
         $(".modal-dialog").should(appear);
+
+        return this;
 
     }
 
-    public void checkResults(String key, String value) {
+    public ResultTable checkResults(String key, String value) {
         $(".table-responsive").$(byText(key)).parent()
                 .shouldHave(text(value));
+        return this;
 
     }
 }
